@@ -1,0 +1,5 @@
+-create base class for fragment
+-clean up unused stuff
+-add boolean to verify that animation has played once
+-override onsave/onrestore for touch point anim
+-github

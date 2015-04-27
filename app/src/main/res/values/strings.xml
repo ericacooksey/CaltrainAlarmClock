@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">CaltrainAlarmClock</string>
+    <string name="home_header">Choose Your Stop</string>
+    <string-array name="station_list">
+        <item>San Francisco</item>
+        <item>22nd Street</item>
+        <item>Bayshore</item>
+        <item>South San Francisco</item>
+        <item>San Bruno</item>
+        <item>Millbrae</item>
+        <item>Broadway</item>
+        <item>Burlingame</item>
+        <item>San Mateo</item>
+        <item>Hayward Park</item>
+        <item>Hillsdale</item>
+        <item>Belmont</item>
+        <item>San Carlos</item>
+        <item>Redwood City</item>
+    </string-array>
+    <string name="direction_header">Choose Your Direction</string>
+    <string name="north">North</string>
+    <string name="south">South</string>
+    <string name="to">to</string>
+</resources>

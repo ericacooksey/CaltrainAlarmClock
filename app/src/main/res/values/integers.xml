@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="time_msec_circular_reveal">2000</integer>
+    <integer name="time_msec_fade">2500</integer>
+</resources>

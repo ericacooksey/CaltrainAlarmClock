@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CaltrainAlarmClockTheme" parent="Theme.AppCompat">
+        <item name="android:actionBarStyle">@style/CaltrainAlarmClockTheme.ActionBar</item>
+        <item name="actionBarStyle">@style/CaltrainAlarmClockTheme.ActionBar</item>
+    </style>
+</resources>

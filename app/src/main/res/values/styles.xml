@@ -1,0 +1,12 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="CaltrainAlarmClockTheme.ActionBar" parent="Widget.AppCompat.ActionBar.Solid">
+        <item name="android:background">@drawable/caltrain_red</item>
+        <item name="background">@drawable/caltrain_red</item>
+    </style>
+    <style name="CaltrainAlarmClockTheme.StationListItem">
+        <item name="android:textSize">24dp</item>
+    </style>
+
+</resources>
