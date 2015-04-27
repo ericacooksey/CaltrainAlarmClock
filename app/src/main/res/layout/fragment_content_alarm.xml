@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_content_alarm"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center">
+
+    <ToggleButton
+        android:id="@+id/btn_alarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="64dp"
+        android:textOn="@string/alarm_set"
+        android:textOff="@string/alarm_off"
+        android:layout_centerHorizontal="true"
+        android:checked="true"
+        style="@style/CaltrainAlarmClockTheme.ToggleButton" />
+
+    <TextView
+        android:id="@+id/text_num_stations"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_alarm"
+        style="@style/CaltrainAlarmClockTheme.DynamicText"/>
+
+    <TextView
+        android:id="@+id/text_before"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/before"
+        android:layout_below="@id/text_num_stations"
+        style="@style/CaltrainAlarmClockTheme.StaticText" />
+
+    <TextView
+        android:id="@+id/text_destination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_before"
+        style="@style/CaltrainAlarmClockTheme.DynamicText" />
+
+    <TextView
+        android:id="@+id/text_on"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/on"
+        android:layout_below="@id/text_destination"
+        style="@style/CaltrainAlarmClockTheme.StaticText" />
+
+    <TextView
+        android:id="@+id/text_direction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_on"
+        style="@style/CaltrainAlarmClockTheme.DynamicText"/>
+
+    <TextView
+        android:id="@+id/text_caltrain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/caltrain"
+        android:layout_below="@id/text_direction"
+        style="@style/CaltrainAlarmClockTheme.StaticText" />
+
+</RelativeLayout>

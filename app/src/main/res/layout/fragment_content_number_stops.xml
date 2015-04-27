@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_content_number_stops"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/fragment_padding_top"
+    android:gravity="center_horizontal">
+
+    <Button
+        android:id="@+id/btn_num_stations"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="@string/number_stations_text"
+        style="@style/CaltrainAlarmClockTheme.Button" />
+
+    <TextView
+        android:id="@+id/text_before"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/before"
+        android:layout_below="@id/btn_num_stations"
+        style="@style/CaltrainAlarmClockTheme.StaticText" />
+
+    <TextView
+        android:id="@+id/text_destination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_before"
+        style="@style/CaltrainAlarmClockTheme.DynamicText" />
+
+    <TextView
+        android:id="@+id/text_on"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/on"
+        android:layout_below="@id/text_destination"
+        style="@style/CaltrainAlarmClockTheme.StaticText" />
+
+    <TextView
+        android:id="@+id/text_direction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_on"
+        style="@style/CaltrainAlarmClockTheme.DynamicText"/>
+
+    <TextView
+        android:id="@+id/text_caltrain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/caltrain"
+        android:layout_below="@id/text_direction"
+        style="@style/CaltrainAlarmClockTheme.StaticText" />
+
+</RelativeLayout>

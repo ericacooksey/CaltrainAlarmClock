@@ -1,7 +1,7 @@
 package net.robertcooksey.caltrainalarmclock;
 
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -9,16 +9,17 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import java.util.concurrent.CountDownLatch;
-
 /**
- * Created by ecookse on 4/26/15.
+ * Fragment to show the list of stations from which the user can make a selection.
  */
 public class StationListFragment extends Fragment {
     private View mView;
-    private ListView mStationList;
-    private StationAdapter mStationAdapter;
     private ICaltrainActivity mCallback;
+    // The ListView of stations
+    private ListView mStationList;
+    // The adapter used to populate the list
+    private StationAdapter mStationAdapter;
+    // Store the touch points to be used for the transition animation.
     private int mTouchX, mTouchY;
 
     @Override
@@ -34,6 +35,7 @@ public class StationListFragment extends Fragment {
         mStationList.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
+                // Store the touch points when a station is selected.
                 mTouchX = (int) event.getX();
                 mTouchY = (int) event.getY();
                 return false;
@@ -42,11 +44,13 @@ public class StationListFragment extends Fragment {
         mStationList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Create a bundle containing the selected station name and touch points
                 Bundle bundle = new Bundle();
                 String stationName = mStationAdapter.getItem(position);
                 bundle.putString(HomeActivity.STATION_NAME, stationName);
                 bundle.putInt(HomeActivity.TOUCH_X, mTouchX);
                 bundle.putInt(HomeActivity.TOUCH_Y, mTouchY);
+                // Trigger the activity callback to dispatch the next fragment, passing it the bundle.
                 mCallback.onStationSelected(bundle);
             }
         });

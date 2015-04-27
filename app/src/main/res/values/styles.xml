@@ -5,8 +5,44 @@
         <item name="android:background">@drawable/caltrain_red</item>
         <item name="background">@drawable/caltrain_red</item>
     </style>
+    <!-- Style for the individual stations in the station list -->
     <style name="CaltrainAlarmClockTheme.StationListItem">
+        <item name="android:background">@color/caltrain_black</item>
         <item name="android:textSize">24dp</item>
+        <item name="android:textColor">@color/caltrain_white</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:minHeight">?android:attr/listPreferredItemHeightSmall</item>
+        <item name="android:elevation">2dp</item>
+    </style>
+    <!-- Style for toggle buttons -->
+    <style name="CaltrainAlarmClockTheme.ToggleButton">
+        <item name="android:minWidth">@dimen/toggle_button_min_width</item>
+        <item name="android:minHeight">@dimen/toggle_button_min_height</item>
+        <item name="android:background">@drawable/apptheme_btn_toggle_holo_dark</item>
+        <item name="android:textSize">@dimen/text_small</item>
+    </style>
+    <!-- Style for buttons -->
+    <style name="CaltrainAlarmClockTheme.Button">
+        <item name="android:minWidth">@dimen/toggle_button_min_width</item>
+        <item name="android:minHeight">@dimen/toggle_button_min_height</item>
+        <item name="android:background">@color/caltrain_red</item>
+        <item name="android:textColor">@color/caltrain_white</item>
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+    <!-- Style for dynamically-selected text -->
+    <style name="CaltrainAlarmClockTheme.DynamicText">
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:textColor">@color/caltrain_white</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+    <!-- Style for static text -->
+    <style name="CaltrainAlarmClockTheme.StaticText">
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:textColor">@color/caltrain_gray</item>
+        <item name="android:layout_centerHorizontal">true</item>
     </style>
 
 </resources>

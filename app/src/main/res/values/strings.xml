@@ -16,9 +16,37 @@
         <item>Belmont</item>
         <item>San Carlos</item>
         <item>Redwood City</item>
+        <item>Menlo Park</item>
+        <item>Palo Alto</item>
+        <item>Stanford</item>
+        <item>California Ave.</item>
+        <item>San Antonio</item>
+        <item>Mountain View</item>
+        <item>Sunnyvale</item>
+        <item>Lawrence</item>
+        <item>Santa Clara</item>
+        <item>College Park</item>
+        <item>San Jose Diridon</item>
+        <item>Tamien</item>
+        <item>Capitol</item>
+        <item>Blossom Hill</item>
+        <item>Morgan Hill</item>
+        <item>San Martin</item>
+        <item>Gilroy</item>
     </string-array>
     <string name="direction_header">Choose Your Direction</string>
     <string name="north">North</string>
     <string name="south">South</string>
     <string name="to">to</string>
+    <string name="stops_header">Set Alarm</string>
+    <string name="number_stations_text">\# of stations</string>
+    <string name="before">before</string>
+    <string name="on">on</string>
+    <string name="northbound">northbound</string>
+    <string name="southbound">southbound</string>
+    <string name="caltrain">Caltrain</string>
+    <string name="stop_formatter_single">%1$s station (%2$s)</string>
+    <string name="stop_formatter_plural">%1$s stations (%2$s)</string>
+    <string name="alarm_set">Alarm set</string>
+    <string name="alarm_off">Alarm off</string>
 </resources>

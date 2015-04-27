@@ -3,8 +3,11 @@ package net.robertcooksey.caltrainalarmclock;
 import android.os.Bundle;
 
 /**
- * Created by ecookse on 4/26/15.
+ * Interface implemented by the activity.
+ * Holds callbacks to the activity that are triggered by various fragments.
  */
 public interface ICaltrainActivity {
     public void onStationSelected(Bundle bundle);
+    public void onDirectionSelected(Bundle bundle);
+    public void onNumStationsSelected(Bundle bundle);
 }

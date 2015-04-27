@@ -6,7 +6,7 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Interpolator;
 
 /**
- * Created by ecookse on 4/26/15.
+ * Utility class with static methods for wrapping common animations.
  */
 public class CaltrainAnimationUtils {
 
