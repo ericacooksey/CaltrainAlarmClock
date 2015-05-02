@@ -2,23 +2,23 @@ package net.robertcooksey.caltrainalarmclock;
 
 import android.animation.Animator;
 import android.content.Context;
-import android.graphics.Outline;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.support.v7.internal.widget.ActionBarContainer;
 import android.view.Display;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
-import android.view.ViewOutlineProvider;
 import android.view.Window;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 /**
  * Base class with built-in transition animations.
@@ -44,6 +44,7 @@ public class CaltrainAnimatedFragment extends Fragment {
     protected int mTouchX, mTouchY;
     private LayoutInflater mInflater;
     private volatile boolean mHasAnimated;
+    private CharSequence mTitle;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -71,6 +72,11 @@ public class CaltrainAnimatedFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        // If the child class set mTitle in onCreateView,
+        // remove the title for now so that we can animate it in.
+        if (mTitle != null && !mTitle.equals("")) {
+            getActivity().setTitle(" ");
+        }
         if (!mHasAnimated) {
             startCircularReveal();
         }
@@ -95,7 +101,12 @@ public class CaltrainAnimatedFragment extends Fragment {
             cy = size.y/2;
         }
         // Set the final radius for the circular reveal to the screen width
-        int finalRadius = size.x;
+        int finalRadius = size.y;
+        // Calculate the delay for the action bar reveal
+        float msecPerPixel = (((float) DURATION_CIRCULAR_REVEAL) / (float) (finalRadius - getActionBarView().getHeight())) / 2.0f;
+        float pixelsBeforeActionBar = (float)(cy - getActionBarView().getHeight());
+        final float msecBeforeActionBar = Math.max(0.0f, msecPerPixel * pixelsBeforeActionBar);
+        final TextView actionBarTextView = getActionBarTextView();
         // Create the circular reveal animator with the params obtained above.
         Animator anim = ViewAnimationUtils.createCircularReveal(mForegroundLayout, cx, cy, 0, finalRadius);
         anim.setDuration(DURATION_CIRCULAR_REVEAL);
@@ -106,17 +117,34 @@ public class CaltrainAnimatedFragment extends Fragment {
             public void onAnimationStart(Animator animation) {
                 // Fade in the new view while it's being revealed
                 CaltrainAnimationUtils.startFadeIn(mForegroundLayout, DURATION_FADE, mFadeInterpolator);
-                // Fade out the old view by fading in a solid black view
-                CaltrainAnimationUtils.startFadeIn(mForegroundLayout, DURATION_FADE, mFadeInterpolator);
-                // Fade in the ActionBar
-                CaltrainAnimationUtils.startFadeIn(getActionBarView(), DURATION_ACTION_BAR_FADE, mActionBarFadeInterpolator);
+                // Fade in the ActionBar once the circular reveal touches the view
+                Runnable r = new Runnable() {
+                    @Override
+                    public void run() {
+                        if (mTitle != null) {
+                            getActivity().setTitle(mTitle);
+                        }
+                        CaltrainAnimationUtils.startFadeIn(actionBarTextView, DURATION_ACTION_BAR_FADE, mActionBarFadeInterpolator);
+                    }
+                };
+                new Handler().postDelayed(r, (long)msecBeforeActionBar);
             }
+
             @Override
             public void onAnimationEnd(Animator animation) {
                 mHasAnimated = true;
             }
         });
         anim.start();
+    }
+
+    /**
+     * Set the action bar title.
+     * This MUST be called in onCreateView.
+     * @param title
+     */
+    protected void setTitle(CharSequence title) {
+        mTitle = title;
     }
 
     /**
@@ -128,6 +156,17 @@ public class CaltrainAnimatedFragment extends Fragment {
         View v = window.getDecorView();
         int resId = getResources().getIdentifier("action_bar_container", "id", getActivity().getPackageName());
         return v.findViewById(resId);
+    }
+
+    /**
+     * Exceptionally ugly hack to get the TextView from the ActionBar.
+     * Unfortunately the TextView does not have an internal resource ID, so I have to do it this way.
+     * @return The TextView that holds the ActionBar title.
+     */
+    private TextView getActionBarTextView() {
+        ActionBarContainer actionBarContainer = (ActionBarContainer) getActionBarView();
+        final TextView textView = (TextView)(((ViewGroup) actionBarContainer.getChildAt(0)).getChildAt(0));
+        return textView;
     }
 
     protected class CaptureTouchPointListener implements View.OnTouchListener {
