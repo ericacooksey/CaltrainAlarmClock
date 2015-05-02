@@ -26,9 +26,9 @@ import android.widget.RelativeLayout;
 public class CaltrainAnimatedFragment extends Fragment {
 
     /* Values which affect the animation */
-    public static final int DURATION_CIRCULAR_REVEAL = 1000;
-    public static final int DURATION_FADE = 1000;
-    public static final int DURATION_ACTION_BAR_FADE = 1200;
+    public static final int DURATION_CIRCULAR_REVEAL = 350;
+    public static final int DURATION_FADE = 500;
+    public static final int DURATION_ACTION_BAR_FADE = 400;
     /* For a full list of interpolators, please see
     http://developer.android.com/reference/android/view/animation/Interpolator.html */
     protected Interpolator mCircularRevealInterpolator = new AccelerateDecelerateInterpolator();
@@ -95,7 +95,7 @@ public class CaltrainAnimatedFragment extends Fragment {
             cy = size.y/2;
         }
         // Set the final radius for the circular reveal to the screen width
-        int finalRadius = size.x;
+        int finalRadius = size.y;
         // Create the circular reveal animator with the params obtained above.
         Animator anim = ViewAnimationUtils.createCircularReveal(mForegroundLayout, cx, cy, 0, finalRadius);
         anim.setDuration(DURATION_CIRCULAR_REVEAL);

@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.transition.Fade;
 
 /**
  * Main activity class. Responsible for dispatching fragments.
@@ -67,6 +68,7 @@ public class HomeActivity extends AppCompatActivity implements ICaltrainActivity
         }
         if (fragment != null) {
             fragment.setArguments(args);
+            fragment.setExitTransition(new Fade(Fade.OUT));
             fragmentTransaction.replace(android.R.id.content, fragment);
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
