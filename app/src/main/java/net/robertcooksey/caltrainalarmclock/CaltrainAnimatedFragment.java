@@ -26,9 +26,9 @@ import android.widget.RelativeLayout;
 public class CaltrainAnimatedFragment extends Fragment {
 
     /* Values which affect the animation */
-    public static final int DURATION_CIRCULAR_REVEAL = 1000;
-    public static final int DURATION_FADE = 1500;
-    public static final int DURATION_ACTION_BAR_FADE = 1200;
+    public static final int DURATION_CIRCULAR_REVEAL = 350;
+    public static final int DURATION_FADE = 500;
+    public static final int DURATION_ACTION_BAR_FADE = 400;
     /* For a full list of interpolators, please see
     http://developer.android.com/reference/android/view/animation/Interpolator.html */
     protected Interpolator mCircularRevealInterpolator = new AccelerateDecelerateInterpolator();
