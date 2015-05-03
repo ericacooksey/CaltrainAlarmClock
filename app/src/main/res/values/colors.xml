@@ -5,5 +5,5 @@
     <color name="caltrain_white">#ffffff</color>
     <color name="caltrain_gray">#dcdcdc</color>
 
-    <color name="fragment_content_bg">@color/caltrain_black</color>
+    <color name="content_bg">@color/caltrain_black</color>
 </resources>
