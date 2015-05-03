@@ -3,5 +3,7 @@
     <style name="CaltrainAlarmClockTheme" parent="Theme.AppCompat">
         <item name="android:actionBarStyle">@style/CaltrainAlarmClockTheme.ActionBar</item>
         <item name="actionBarStyle">@style/CaltrainAlarmClockTheme.ActionBar</item>
+        <!--<item name="android:background">@color/caltrain_gray</item>-->
+        <!--<item name="android:textColor">@color/caltrain_white</item>-->
     </style>
 </resources>
