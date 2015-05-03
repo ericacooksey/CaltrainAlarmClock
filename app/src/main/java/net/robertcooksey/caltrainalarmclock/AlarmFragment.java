@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 /**
@@ -24,7 +26,7 @@ public class AlarmFragment extends CaltrainAnimatedFragment {
         // Add the content view to the layout
         addForegroundLayout(R.layout.fragment_content_alarm);
         // Set the action bar title
-        getActivity().setTitle(mContext.getString(R.string.stops_header));
+        setTitle(mContext.getString(R.string.stops_header));
         setupText();
         return mView;
     }

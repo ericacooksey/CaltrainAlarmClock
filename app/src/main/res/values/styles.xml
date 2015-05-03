@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="CaltrainAlarmClockTheme.ActionBar" parent="Widget.AppCompat.ActionBar.Solid">
+    <style name="CaltrainAlarmClockTheme.ActionBar" parent="Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@drawable/caltrain_red</item>
         <item name="background">@drawable/caltrain_red</item>
     </style>
