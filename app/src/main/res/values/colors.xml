@@ -6,4 +6,5 @@
     <color name="caltrain_gray">#dcdcdc</color>
 
     <color name="content_bg">@color/caltrain_black</color>
+    <color name="dialog_bg">@color/caltrain_gray</color>
 </resources>

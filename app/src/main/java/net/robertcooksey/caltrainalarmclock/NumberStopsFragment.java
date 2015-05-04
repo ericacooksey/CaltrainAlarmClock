@@ -1,6 +1,6 @@
 package net.robertcooksey.caltrainalarmclock;
 
-import android.app.AlertDialog;
+import android.support.v7.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -23,6 +23,8 @@ public class NumberStopsFragment extends CaltrainAnimatedFragment {
     private String mDirection;
     private String[] mStationNames;
     private int mNumStations;
+
+    private static final int MAX_STATIONS = 4;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -59,7 +61,7 @@ public class NumberStopsFragment extends CaltrainAnimatedFragment {
             @Override
             public void onClick(View v) {
                 CharSequence[] selections = getStationOptions();
-                final AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+                final AlertDialog.Builder builder = new AlertDialog.Builder(mContext, R.style.CaltrainAlarmClockTheme_AlertDialog);
                 builder.setTitle(getResources().getString(R.string.stops_header))
                         .setItems(selections, new DialogInterface.OnClickListener() {
                             @Override
@@ -89,9 +91,9 @@ public class NumberStopsFragment extends CaltrainAnimatedFragment {
         int selectedStationIndex = Arrays.asList(mStationNames).indexOf(mSelectedStation);
         int maxNumStations;
         if (mDirection == HomeActivity.NORTH) {
-            maxNumStations = mStationNames.length - selectedStationIndex;
+            maxNumStations = Math.min(MAX_STATIONS, mStationNames.length - selectedStationIndex);
         } else {
-            maxNumStations = selectedStationIndex + 1;
+            maxNumStations = Math.min(MAX_STATIONS, selectedStationIndex + 1);
         }
         CharSequence[] selections = new CharSequence[maxNumStations];
         if (mDirection == HomeActivity.NORTH) {
