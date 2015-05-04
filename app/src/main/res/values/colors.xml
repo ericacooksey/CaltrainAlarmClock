@@ -3,7 +3,7 @@
     <color name="caltrain_red">#e31837</color>
     <color name="caltrain_black">#000000</color>
     <color name="caltrain_white">#ffffff</color>
-    <color name="caltrain_gray">#dcdcdc</color>
+    <color name="caltrain_gray">#362E2F</color>
 
-    <color name="content_bg">@color/caltrain_black</color>
+    <color name="content_bg">@color/caltrain_gray</color>
 </resources>

@@ -7,7 +7,7 @@
     </style>
     <!-- Style for the individual stations in the station list -->
     <style name="CaltrainAlarmClockTheme.StationListItem">
-        <item name="android:background">@color/caltrain_black</item>
+        <item name="android:background">@color/content_bg</item>
         <item name="android:textSize">24dp</item>
         <item name="android:textColor">@color/caltrain_white</item>
         <item name="android:gravity">center_vertical</item>
