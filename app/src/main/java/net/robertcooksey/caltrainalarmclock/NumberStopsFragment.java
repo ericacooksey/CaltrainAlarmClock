@@ -1,8 +1,10 @@
 package net.robertcooksey.caltrainalarmclock;
 
+import android.app.Dialog;
 import android.support.v7.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +26,7 @@ public class NumberStopsFragment extends CaltrainAnimatedFragment {
     private String[] mStationNames;
     private int mNumStations;
 
-    private static final int MAX_STATIONS = 4;
+    private static final int MAX_STATIONS = 5;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

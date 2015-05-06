@@ -7,7 +7,7 @@
     </style>
     <!-- Style for the individual stations in the station list -->
     <style name="CaltrainAlarmClockTheme.StationListItem">
-        <item name="android:background">@color/caltrain_black</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
         <item name="android:textSize">24dp</item>
         <item name="android:textColor">@color/caltrain_white</item>
         <item name="android:gravity">center_vertical</item>
@@ -47,7 +47,8 @@
     <!-- Style for popup dialog -->
     <style name="CaltrainAlarmClockTheme.AlertDialog" parent="Theme.AppCompat.Dialog">
         <item name="android:textColor">@color/caltrain_white</item>
-        <item name="android:background">@color/dialog_bg</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:backgroundTint">@color/dialog_bg</item>
     </style>
 
 </resources>
