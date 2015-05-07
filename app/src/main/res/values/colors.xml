@@ -7,4 +7,6 @@
 
     <color name="content_bg">@color/caltrain_black</color>
     <color name="dialog_bg">@color/caltrain_gray</color>
+    <color name="dynamic_text_default">@color/caltrain_white</color>
+    <color name="dynamic_text_pressed">@color/caltrain_red</color>
 </resources>
