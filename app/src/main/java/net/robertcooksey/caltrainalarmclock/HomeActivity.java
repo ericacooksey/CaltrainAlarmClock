@@ -28,6 +28,11 @@ public class HomeActivity extends AppCompatActivity implements ICaltrainActivity
         goToFragment(StationListFragment.class.getSimpleName(), null, false);
     }
 
+    @Override
+    public void onStationChange(Bundle bundle) {
+        goToFragment(StationListFragment.class.getSimpleName(), bundle);
+    }
+
     /**
      * Callback invoked by StationListFragment when a station in the list is selected.
      * @param bundle Arguments passed back to the activity,

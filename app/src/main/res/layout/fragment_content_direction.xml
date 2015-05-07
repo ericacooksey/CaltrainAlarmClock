@@ -36,12 +36,10 @@
         android:layout_below="@id/direction_toggle_south"
         style="@style/CaltrainAlarmClockTheme.StaticText" />
 
-    <TextView
-        android:id="@+id/direction_destination"
+    <include
+        layout="@layout/element_text_station"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/direction_to"
-        style="@style/CaltrainAlarmClockTheme.DynamicText" />
+        android:layout_below="@id/direction_to"/>
 
 </RelativeLayout>
