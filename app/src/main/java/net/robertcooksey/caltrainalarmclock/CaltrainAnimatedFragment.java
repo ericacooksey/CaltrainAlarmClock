@@ -16,6 +16,7 @@ import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
@@ -32,7 +33,7 @@ public class CaltrainAnimatedFragment extends Fragment {
     public static final int DURATION_ACTION_BAR_FADE = 400;
     /* For a full list of interpolators, please see
     http://developer.android.com/reference/android/view/animation/Interpolator.html */
-    protected Interpolator mCircularRevealInterpolator = new AccelerateDecelerateInterpolator();
+    protected Interpolator mCircularRevealInterpolator = new AccelerateInterpolator();
     protected Interpolator mFadeInterpolator = new AccelerateDecelerateInterpolator();
     protected Interpolator mActionBarFadeInterpolator = new AccelerateDecelerateInterpolator();
 
