@@ -22,12 +22,11 @@
         android:layout_below="@id/btn_num_stations"
         style="@style/CaltrainAlarmClockTheme.StaticText" />
 
-    <TextView
-        android:id="@+id/text_destination"
-        android:layout_width="wrap_content"
+    <include
+        layout="@layout/element_text_station"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/text_before"
-        style="@style/CaltrainAlarmClockTheme.DynamicText" />
+        android:layout_below="@id/text_before"/>
 
     <TextView
         android:id="@+id/text_on"
@@ -37,12 +36,11 @@
         android:layout_below="@id/text_destination"
         style="@style/CaltrainAlarmClockTheme.StaticText" />
 
-    <TextView
-        android:id="@+id/text_direction"
-        android:layout_width="wrap_content"
+    <include
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/text_on"
-        style="@style/CaltrainAlarmClockTheme.DynamicText"/>
+        layout="@layout/element_text_direction" />
 
     <TextView
         android:id="@+id/text_caltrain"

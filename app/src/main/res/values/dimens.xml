@@ -8,8 +8,8 @@
     <dimen name="toggle_button_min_width">100dp</dimen>
     <dimen name="toggle_button_min_height">100dp</dimen>
 
-    <dimen name="text_large">24dp</dimen>
-    <dimen name="text_small">16dp</dimen>
+    <dimen name="text_large">24sp</dimen>
+    <dimen name="text_small">16sp</dimen>
 
     <dimen name="round_button_diameter">64dp</dimen>
     <dimen name="round_button_margin">16dp</dimen>

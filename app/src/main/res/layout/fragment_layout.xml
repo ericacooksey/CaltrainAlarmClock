@@ -2,12 +2,12 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/fragment_layout_root"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/content_bg">
 
     <View
         android:id="@+id/fragment_layout_background"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/fragment_content_bg" />
+        android:layout_height="match_parent" />
 
 </FrameLayout>
