@@ -41,7 +41,7 @@
     <!-- Style for static text -->
     <style name="CaltrainAlarmClockTheme.StaticText">
         <item name="android:textSize">@dimen/text_large</item>
-        <item name="android:textColor">@color/caltrain_gray</item>
+        <item name="android:textColor">#c8bbbd</item>
         <item name="android:layout_centerHorizontal">true</item>
     </style>
 
