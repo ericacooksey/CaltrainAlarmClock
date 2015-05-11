@@ -25,7 +25,12 @@ public class HomeActivity extends AppCompatActivity implements ICaltrainActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle(getResources().getString(R.string.home_header));
-        goToFragment(StationListFragment.class.getSimpleName(), null);
+        goToFragment(StationListFragment.class.getSimpleName(), null, false);
+    }
+
+    @Override
+    public void onStationChange(Bundle bundle) {
+        goToFragment(StationListFragment.class.getSimpleName(), bundle);
     }
 
     /**
@@ -53,7 +58,7 @@ public class HomeActivity extends AppCompatActivity implements ICaltrainActivity
      * @param fragmentName
      * @param args
      */
-    private void goToFragment(String fragmentName, Bundle args) {
+    private void goToFragment(String fragmentName, Bundle args, boolean addToBackStack) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         Fragment fragment = null;
@@ -70,8 +75,19 @@ public class HomeActivity extends AppCompatActivity implements ICaltrainActivity
             fragment.setArguments(args);
             fragment.setExitTransition(new Fade(Fade.OUT));
             fragmentTransaction.replace(android.R.id.content, fragment);
-            fragmentTransaction.addToBackStack(null);
+            if (addToBackStack) {
+                fragmentTransaction.addToBackStack(null);
+            }
             fragmentTransaction.commit();
         }
+    }
+
+    /**
+     * Wrapper method for goToFragment, which adds to the backstack by default.
+     * @param fragmentName
+     * @param args
+     */
+    private void goToFragment(String fragmentName, Bundle args) {
+        goToFragment(fragmentName, args, true);
     }
 }

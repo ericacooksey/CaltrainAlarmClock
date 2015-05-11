@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v7.internal.widget.ActionBarContainer;
 import android.view.Display;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -45,6 +46,9 @@ public class CaltrainAnimatedFragment extends Fragment {
     private LayoutInflater mInflater;
     private volatile boolean mHasAnimated;
     private CharSequence mTitle;
+    private TextView mStationView;
+    private TextView mDirectionView;
+    private TextView mNumStationsView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,7 +61,18 @@ public class CaltrainAnimatedFragment extends Fragment {
         mRootLayout = (FrameLayout) mView.findViewById(R.id.fragment_layout_root);
         mBackgroundView = mView.findViewById(R.id.fragment_layout_background);
         mForegroundLayout = new RelativeLayout(mContext);
+
         return mView;
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        if (mForegroundLayout != null) {
+            setupDestinationTextView();
+            setupDirectionTextView();
+            setupNumStationsTextView();
+        }
     }
 
     /**
@@ -167,6 +182,81 @@ public class CaltrainAnimatedFragment extends Fragment {
         ActionBarContainer actionBarContainer = (ActionBarContainer) getActionBarView();
         final TextView textView = (TextView)(((ViewGroup) actionBarContainer.getChildAt(0)).getChildAt(0));
         return textView;
+    }
+
+    /**
+     * Initialize the destination TextView, if present.
+     */
+    protected void setupDestinationTextView() {
+        // Only initialize this once
+        if (mStationView == null) {
+            // Check if the foreground layout contains the destination TextView
+            mStationView = (TextView) mForegroundLayout.findViewById(R.id.text_destination);
+            if (mStationView != null) {
+                // Set the destination name
+                mStationView.setText(getArguments().getString(HomeActivity.STATION_NAME));
+                // Center-align the text
+                mStationView.setGravity(Gravity.CENTER_HORIZONTAL);
+                // Set a click listener to return to the station selector
+                mStationView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mCallback.onStationChange(getArguments());
+                    }
+                });
+            }
+        }
+    }
+
+    /**
+     * Initialize the direction TextView, if present.
+     */
+    protected void setupDirectionTextView() {
+        // Only initialize this once
+        if (mDirectionView == null) {
+            // Check if the foreground layout contains the direction TextView
+            mDirectionView = (TextView) mForegroundLayout.findViewById(R.id.text_direction);
+            if (mDirectionView != null) {
+                // Set the destination string
+                String direction = getArguments().getString(HomeActivity.DIRECTION);
+                if (direction.equals(HomeActivity.NORTH)) {
+                    mDirectionView.setText(mContext.getResources().getString(R.string.northbound));
+                } else {
+                    mDirectionView.setText(mContext.getResources().getString(R.string.southbound));
+                }
+                mDirectionView.setGravity(Gravity.CENTER_HORIZONTAL);
+                // Set a click listener to return to the direction selector
+                mDirectionView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mCallback.onStationSelected(getArguments());
+                    }
+                });
+            }
+        }
+    }
+
+    /**
+     * Initialize the number of stations TextView, if present.
+     */
+    protected void setupNumStationsTextView() {
+        // Only initialize this once
+        if (mNumStationsView == null) {
+            // Check if the foreground layout contains the number of stations TextView
+            mNumStationsView = (TextView) mForegroundLayout.findViewById(R.id.text_num_stations);
+            if (mNumStationsView != null) {
+                // Set the text
+                mNumStationsView.setText(getArguments().getString(HomeActivity.NUM_STATIONS));
+                mNumStationsView.setGravity(Gravity.CENTER_HORIZONTAL);
+                // Set a click listener to return to the number of stations selector
+                mNumStationsView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mCallback.onDirectionSelected(getArguments());
+                    }
+                });
+            }
+        }
     }
 
     protected class CaptureTouchPointListener implements View.OnTouchListener {

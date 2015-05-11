@@ -29,8 +29,9 @@ public class DirectionFragment extends CaltrainAnimatedFragment {
         setTitle(mContext.getResources().getString(R.string.direction_header));
         // Set up the toggle buttons
         setupToggleButtons();
-        // Set the direction text
-        setDirectionText();
+        // Obtain the direction text
+        mStationName = getArguments().getString(HomeActivity.STATION_NAME);
+
         return mView;
     }
 
@@ -72,18 +73,5 @@ public class DirectionFragment extends CaltrainAnimatedFragment {
                 mCallback.onDirectionSelected(bundle);
             }
         });
-    }
-
-    /**
-     * Private helper method to set the destination station based on the station selected in the last fragment.
-     */
-    private void setDirectionText() {
-        // Obtain a reference to the TextView
-        TextView textView = (TextView) mView.findViewById(R.id.direction_destination);
-        // Get the station name that was passed into this fragment from the last one
-        mStationName = getArguments().getString(HomeActivity.STATION_NAME);
-        textView.setText(mStationName);
-        // Center-align the text
-        textView.setGravity(Gravity.CENTER_HORIZONTAL);
     }
 }
