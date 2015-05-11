@@ -35,15 +35,15 @@
         <item>Gilroy</item>
     </string-array>
     <string name="direction_header">Choose Your Direction</string>
-    <string name="north">North</string>
-    <string name="south">South</string>
+    <string name="north">NORTH</string>
+    <string name="south">SOUTH</string>
     <string name="to">to</string>
     <string name="stops_header">Set Alarm</string>
     <string name="number_stations_text">\# of stations</string>
     <string name="before">before</string>
     <string name="on">on</string>
-    <string name="northbound">northbound</string>
-    <string name="southbound">southbound</string>
+    <string name="northbound">North-Bound</string>
+    <string name="southbound">South-Bound</string>
     <string name="caltrain">Caltrain</string>
     <string name="stop_formatter_single">%1$s station (%2$s)</string>
     <string name="stop_formatter_plural">%1$s stations (%2$s)</string>
